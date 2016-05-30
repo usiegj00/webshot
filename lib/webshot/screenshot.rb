@@ -41,6 +41,7 @@ module Webshot
         gravity = opts.fetch(:gravity, "north")
         quality = opts.fetch(:quality, 85)
         nothumb = opts.fetch(:nothumb, false)
+        paper_size = opts.fetch(:paper_size, nil)
         screenshot_opts = opts.fetch(:screenshot_opts, {})
         allowed_status_codes = opts.fetch(:allowed_status_codes, [])
         default_screenshot_opts = { full: true } # Default to full page
@@ -64,6 +65,7 @@ module Webshot
         tmp.close
         begin
           screenshot_opts = default_screenshot_opts.merge(screenshot_opts)
+          page.driver.paper_size = paper_size if paper_size
 
           # Save screenshot to file
           if nothumb
