@@ -41,7 +41,7 @@ module Webshot
         gravity = opts.fetch(:gravity, "north")
         quality = opts.fetch(:quality, 85)
         nothumb = opts.fetch(:nothumb, false)
-        screenshot_pots = opts.fetch(:screenshot_opts, {})
+        screenshot_opts = opts.fetch(:screenshot_opts, {})
         allowed_status_codes = opts.fetch(:allowed_status_codes, [])
         default_screenshot_opts = { full: true } # Default to full page
 
