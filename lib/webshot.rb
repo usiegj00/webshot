@@ -18,6 +18,10 @@ module Webshot
   mattr_accessor :height
   @@height = 768
 
+  # A custom path to the phantomjs executable
+  mattr_accessor :phantomjs_options
+  @@phantomjs_options = ['--ignore-ssl-errors=true', '--ssl-protocol=any']
+
   # User agent
   mattr_accessor :user_agent
   @@user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.43 Safari/537.31"
@@ -38,7 +42,7 @@ module Webshot
         # Raise JavaScript errors to Ruby
         js_errors: false,
         # Additional command line options for PhantomJS
-        phantomjs_options: ['--ignore-ssl-errors=yes', '--ssl-protocol=any']
+        phantomjs_options: self.phantomjs_options
       })
     end
     Capybara.current_driver = :poltergeist
