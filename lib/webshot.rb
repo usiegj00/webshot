@@ -42,7 +42,9 @@ module Webshot
         # Raise JavaScript errors to Ruby
         js_errors: false,
         # Additional command line options for PhantomJS
-        phantomjs_options: self.phantomjs_options
+        phantomjs_options: self.phantomjs_options,
+        # Allow setting of the viewport (windowsize) / see https://github.com/teampoltergeist/poltergeist
+        window_size: [self.width, self.height]
       })
     end
     Capybara.current_driver = :poltergeist
